@@ -188,9 +188,9 @@ buildMobileKit() {
 if [ $BUILD_DEVICE ]; then
     buildMobileKit iphoneos
 fi
-if [ $BUILD_SIMULATOR ]; then
-    buildMobileKit iphonesimulator
-fi
+#if [ $BUILD_SIMULATOR ]; then
+#    buildMobileKit iphonesimulator
+#fi
 if [ $BUILD_FRAMEWORK ]; then
     info "Building MobileVLCKit.framework"
 
@@ -199,7 +199,7 @@ if [ $BUILD_FRAMEWORK ]; then
     rm -rf MobileVLCKit.framework && \
     mkdir MobileVLCKit.framework && \
     lipo -create Release-iphoneos/libMobileVLCKit.a \
-                 Release-iphonesimulator/libMobileVLCKit.a \
+                 #Release-iphonesimulator/libMobileVLCKit.a \
               -o MobileVLCKit.framework/MobileVLCKit && \
     chmod a+x MobileVLCKit.framework/MobileVLCKit && \
     cp -pr Release-iphoneos/include/MobileVLCKit MobileVLCKit.framework/Headers
